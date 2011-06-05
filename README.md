@@ -1,0 +1,3 @@
+## Usage
+
+    # ruby scrape.rb domain [domain]...
