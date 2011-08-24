@@ -24,9 +24,9 @@ ARGV.each do |domain|
 	Dir.mkdir outfile.call(".") unless File.exists? outfile.call(".")
 
 	page = 1
-    doc = Nokogiri::HTML(Net::HTTP.get(domain, "/"))
-    until doc.css("#content .pagination #next").length < 1
-        doc = Nokogiri::HTML(Net::HTTP.get(domain, "/page/#{page}")) unless page == 1
+	doc = Nokogiri::HTML(Net::HTTP.get(domain, "/"))
+	until doc.css("#content .pagination #next").length < 1
+		doc = Nokogiri::HTML(Net::HTTP.get(domain, "/page/#{page}")) unless page == 1
 		current_page = doc.css("#content .pagination .total")[0].content
 
 		print "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"
