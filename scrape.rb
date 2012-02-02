@@ -21,7 +21,7 @@ ARGV.each do |domain|
 	end
 
 	puts "Scraping #{domain}"
-	Dir.mkdir outfile.call(".") unless File.exists? outfile.call(".")
+	Dir.mkdir outfile.call(URI.parse ".") unless File.exists? outfile.call(URI.parse ".")
 
 	page = 1
 	doc = Nokogiri::HTML(Net::HTTP.get(domain, "/"))
